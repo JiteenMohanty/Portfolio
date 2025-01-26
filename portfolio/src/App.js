@@ -3,15 +3,20 @@ import './App.css';
 import Home from './components/Home';
 import About from './components/About';
 import Projects from './components/Projects';
-import Contact from './components/Contact';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 const App = () => {
     return (
-        <div>
-            <Home />
-            <About />
-            <Projects />
-            <Contact />
+        <div className="app-container">
+            <main className="main-content">
+                <Router>
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/about" element={<About />} />
+                        <Route path="/projects" element={<Projects />} />
+                    </Routes>
+                </Router>
+            </main>
         </div>
     );
 };

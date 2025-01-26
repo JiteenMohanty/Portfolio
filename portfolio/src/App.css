@@ -1,37 +1,268 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #adacac30;
+  overflow: hidden;
 }
 
-h1 {
-    color: #333;
+.app-container {
+  display: flex;
+  margin: 10%;
+}
+
+.profile {
+  text-align: center;
+}
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+/* General styles for social links */
+.social-links a {
+  display: inline-block;
+  margin: 10px;
+  text-decoration: none;
+  font-size: 1.2em;
+  transition: color 0.3s;
+  position: relative;
+  top: 120px;
+}
+
+/* GitHub link (Icon + Text) */
+.social-links a.github {
+  color: #333; /* Black color for GitHub */
+}
+
+.social-links a.github:hover {
+  color: #0056b3; /* Darker blue on hover */
+}
+
+/* Tooltip Styling */
+.social-links a.email {
+  color: red; /* Email text in red */
+  position: relative;
+  font-weight: normal;
+}
+
+.social-links a.email:hover {
+  color: black; /* Change color to black on hover */
+}
+
+.social-links a.email .email-tooltip {
+  visibility: hidden;
+  position: absolute;
+  top: -25px;
+  left: 0;
+  background-color: #333;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 0.8em;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+.social-links a.email:hover .email-tooltip {
+  visibility: visible; /* Show tooltip on hover */
+}
+/* CV link (Icon + Text) */
+.social-links a.cv {
+  color: #333; /* Black color for CV */
+}
+
+.social-links a.cv:hover {
+  color: #007bff; /* Blue color on hover */
+}
+
+/* LinkedIn link (Icon + Text) */
+.social-links a.linkedin {
+  color: #0077b5; /* LinkedIn's blue color */
+}
+
+.social-links a.linkedin:hover {
+  color: #005582; /* Darker blue for LinkedIn hover */
+}
+
+/* Adjusting the CV Icon (clipboard/paper) */
+.social-links a.cv .icon {
+  font-size: 1.2em;
+  margin-right: 8px; /* Space between icon and text */
+}
+
+/* Ensure icons and text are vertically aligned */
+.social-links a .icon {
+  vertical-align: middle;
+}
+
+/* Main content area that stays visible above the overlay */
+.main-content {
+  width: 100%;
+  height: 100%;
+}
+
+h1,
+p {
+  margin-bottom: 20px;
+  line-height: 1.6;
 }
 
 .landing {
-    text-align: center;
-    padding: 50px;
-    background: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 700px;
+  height: 400px;
+  overflow: hidden;
+  background-color: white;
 }
 
-nav ul {
-    list-style-type: none;
-    padding: 0;
+div {
+  margin: auto;
 }
 
-nav ul li {
-    display: inline;
-    margin: 0 15px;
+.about,
+.projects {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
 }
 
-nav ul li a {
-    text-decoration: none;
-    color: #007bff;
+/* Responsive styles */
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .explore-button {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .social-links a {
+    font-size: 1em;
+  }
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: rgba(0, 0, 0, 0.5); /* Black background with some transparency */
+  z-index: -1; /* This sits below the content */
+  overflow: hidden;
+}
+/* Modal Background (blur everything else) */
+.cv-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Slight darkening to indicate modal focus */
+  backdrop-filter: blur(
+    2px
+  ); /* Apply a blur effect to everything behind the modal */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
 }
 
-nav ul li a:hover {
-    text-decoration: underline;
+/* Modal content (paper-like appearance) */
+.cv-modal-content {
+  width: 450px; /* A4 paper width */
+  height: 700px; /* A4 paper height */
+  overflow-y: scroll; /* Hide anything that overflows the paper */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Soft shadow to give depth */
+  border-radius: 6px;
+}
+
+/* Styling the scrollbar */
+.cv-modal-content::-webkit-scrollbar {
+  width: 8px; /* Set the width of the scrollbar */
+}
+
+.cv-modal-content::-webkit-scrollbar-thumb {
+  background: #888; /* Light gray color for the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners for a smooth look */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.cv-modal-content::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Darker gray when hovering */
+}
+
+.cv-modal-content::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Light gray background for the track */
+  border-radius: 10px; /* Rounded corners for the track */
+}
+
+/* Close button style */
+.cv-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+  background: transparent;
+  border: none;
+  z-index: 3; /* Make sure the close button is always on top */
+}
+
+/* Optional: CV iframe styling */
+.cv-modal iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* General Navbar Styles */
+.navbar {
+  background-color: #fff; /* Light background color for the navbar */
+  color: #333; /* Dark text color */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  text-align: center;
+  padding: 15px 0; /* Adjusted padding for better spacing */
+  width: 80%;
+  position: relative; /* Keep the navbar position as relative */
+}
+
+/* Navbar Links */
+.navbar-link {
+  text-decoration: none;
+  color: #333; /* Dark text color */
+  font-size: 1.2em; /* Font size for visibility */
+  margin: 0 20px; /* Space out the links */
+  font-weight: 600; /* Slightly bold */
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Navbar link hover effect */
+.navbar-link:hover {
+  color: #007bff; /* Blue color on hover */
+  transform: scale(1.1); /* Slightly enlarge the link on hover */
+}
+
+/* Navbar Icon Styles */
+.navbar-link i {
+  margin-right: 8px; /* Space between icon and text */
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+  .navbar-link {
+    font-size: 1.5em; /* Increase font size on smaller screens */
+    margin: 10px 0; /* Stack the links with spacing in between */
+  }
+}
+
+/* Gap between sections */
+.gap {
+  height: 70px;
 }
