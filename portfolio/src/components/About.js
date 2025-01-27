@@ -18,10 +18,10 @@ const About = () => {
       </div>
       <div className="gap"></div>
       <div className="navbar">
-        <Link className="navbar-link" to="/">
-          <i className="fas fa-home"></i> Home
+        <Link className="navbar-section navbar-link" to="/about">
+          <i className="fas fa-user"></i> About
         </Link>
-        <Link className="navbar-link" to="/projects">
+        <Link className="navbar-section navbar-link" to="/projects">
           Projects <i className="fas fa-laptop-code"></i>
         </Link>
       </div>

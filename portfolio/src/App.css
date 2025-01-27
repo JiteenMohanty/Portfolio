@@ -224,35 +224,57 @@ div {
 
 /* General Navbar Styles */
 .navbar {
-  background-color: #fff; /* Light background color for the navbar */
-  color: #333; /* Dark text color */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-  text-align: center;
-  padding: 15px 0; /* Adjusted padding for better spacing */
-  width: 80%;
+  display: flex; /* Flexbox to arrange sections side by side */
   position: relative; /* Keep the navbar position as relative */
 }
 
-/* Navbar Links */
+/* Navbar Sections */
+.navbar-section {
+  width: 50%; /* Fixed width for each section */
+  text-align: center; /* Center align the content */
+  padding: 15px 0; /* Add padding to sections */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+  cursor: pointer;
+  background-color: #fff; /* Match the navbar's background */
+  font-family: 'Poppins', sans-serif; /* Minimalistic font */
+  font-weight: 500; /* Medium weight */
+  font-size: 1.2em;
+  display: flex; /* Use flexbox to align icon and text side by side */
+  justify-content: center; /* Center the items horizontally */
+  align-items: center; /* Align the items vertically */
+}
+
+/* Hover Effect */
+.navbar-section:hover {
+  transform: translateY(-5px); /* Elevate on hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Spread shadow */
+}
+
+/* Active/Clicked Effect */
+.navbar-section:active {
+  transform: translateY(-5px); /* Keep elevated */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+}
+
+/* Font Awesome Icon Styling */
+.navbar-section i {
+  font-size: 1.5em; /* Larger icon size */
+  color: #007bff; /* Subtle blue color for the icon */
+  margin-right: 10px; /* Space between icon and text */
+}
+
+/* Navbar Link Styling */
 .navbar-link {
-  text-decoration: none;
-  color: #333; /* Dark text color */
-  font-size: 1.2em; /* Font size for visibility */
-  margin: 0 20px; /* Space out the links */
-  font-weight: 600; /* Slightly bold */
-  transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+  text-decoration: none; /* Remove the underline */
+  color: inherit; /* Inherit color from parent */
+  transition: color 0.3s ease; /* Smooth color transition */
 }
 
-/* Navbar link hover effect */
 .navbar-link:hover {
-  color: #007bff; /* Blue color on hover */
-  transform: scale(1.1); /* Slightly enlarge the link on hover */
+  color: #0056b3; /* Darker blue on hover */
 }
 
-/* Navbar Icon Styles */
-.navbar-link i {
-  margin-right: 8px; /* Space between icon and text */
-}
+
 
 /* Responsive design adjustments */
 @media (max-width: 768px) {

@@ -34,21 +34,24 @@ const Home = () => {
           <div className="social-links">
             <a
               href="https://www.linkedin.com/in/jiteen-mohanty-61b814133"
-              target="_blank" rel="noopener noreferrer"
+              target="_blank"
+              rel="noopener noreferrer"
               className="linkedin"
             >
               <i className="fab fa-linkedin"></i> LinkedIn
             </a>
-            <a href="https://github.com/JiteenMohanty" target="_blank" rel="noopener noreferrer" className="github">
+            <a
+              href="https://github.com/JiteenMohanty"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="github"
+            >
               <i className="fab fa-github"></i> GitHub
             </a>
             {/* Email link with tooltip */}
-            <a
-              href="#"
-              className="email"
-              onClick={copyEmailToClipboard}
-            >
-              <i className="fas fa-envelope gmail-icon"></i> jiteen92718@gmail.com
+            <a href="#" className="email" onClick={copyEmailToClipboard}>
+              <i className="fas fa-envelope gmail-icon"></i>{" "}
+              jiteen92718@gmail.com
               <span className="email-tooltip">Copy to clipboard</span>
             </a>
             {/* Update the CV link to open the modal */}
@@ -78,11 +81,11 @@ const Home = () => {
       </div>
       <div className="gap"></div>
       <div className="navbar">
-        <Link className="navbar-link" to="/about">
+        <Link className="navbar-section navbar-link" to="/about">
           <i className="fas fa-user"></i> About
         </Link>
-        <Link className="navbar-link" to="/projects">
-          Projects <i className="fas fa-laptop-code"></i> 
+        <Link className="navbar-section navbar-link" to="/projects">
+          Projects <i className="fas fa-laptop-code"></i>
         </Link>
       </div>
     </Layout>
