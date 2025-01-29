@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Transitions.css";
 
 const About = () => {
   return (
@@ -20,6 +19,9 @@ const About = () => {
       <div className="navbar">
         <Link className="navbar-section navbar-link" to="/about">
           <i className="fas fa-user"></i> About
+        </Link>
+        <Link className="navbar-section navbar-link" to="/">
+          <i className="fas fa-home"></i> Home
         </Link>
         <Link className="navbar-section navbar-link" to="/projects">
           Projects <i className="fas fa-laptop-code"></i>
